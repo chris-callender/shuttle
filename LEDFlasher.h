@@ -7,7 +7,7 @@ class LEDFlasher
   public:
   LEDFlasher( int pin);
   ~LEDFlasher();
-  void run(int value);
+  void run(int value,bool ledOverride);
   void reset();
   private:
   unsigned long _cycleStartms;

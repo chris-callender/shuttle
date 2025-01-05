@@ -20,10 +20,12 @@ bool SwitchEvent::poll()
   if (switchState==lastSwitchState) eventType=EVENT_NONE;
   lastSwitchState=switchState;
 
-  if (eventType==EVENT_RISING) downTime=millis();
+  if (eventType==EVENT_RISING) { downTime=millis(); }
+  if (switchState==HIGH) {preemptDuration = millis()-downTime; }
   if (eventType==EVENT_FALLING) 
   { 
     pressDuration=millis()-downTime;
+    preemptDuration=0;
     return(true);
   }
   else return false;

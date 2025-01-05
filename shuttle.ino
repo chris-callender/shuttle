@@ -44,7 +44,7 @@ void loop() {
       builtinLED.reset();
     }
   }
-  builtinLED.run(idx);
+  builtinLED.run(idx,pushSwitch.preemptDuration>=PRESS_LONG);
   sADC.update(idx, EEData);
   sm.update(sADC,detectorCheck(sm.activeDetector));
   Serial.print(sm.activeDetector);

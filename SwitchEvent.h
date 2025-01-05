@@ -15,6 +15,7 @@ class SwitchEvent
   ~SwitchEvent();
   bool poll();
   unsigned long pressDuration=0;
+  unsigned long preemptDuration=0;
   uint8_t eventType=EVENT_NONE;
   uint8_t switchState=LOW;
 
