@@ -21,5 +21,6 @@ public:
 private:
   int state;
   long lastStateChange_ms;
+  int _speedReached;
 };
 #endif

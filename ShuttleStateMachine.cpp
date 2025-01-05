@@ -7,6 +7,7 @@ ShuttleStateMachine::ShuttleStateMachine()
   state=RUN;
   activeDetector=DETBOTH;
   speed=0;
+  _speedReached=0;
   direction=false;
 }
 
@@ -34,12 +35,13 @@ void ShuttleStateMachine::update(SettingsADC settings, int det)
         state=DECEL;
         lastStateChange_ms=millis();
         if (det==1) activeDetector=DET2; else activeDetector=DET1;
+        _speedReached=speed;
       }
       break;
     case DECEL:
       if (speed>0)
       {
-        speed=settings.maxSpeed-((float)currentStateTime_ms*(float)settings.speedChange_ms);
+        speed=_speedReached-((float)currentStateTime_ms*(float)settings.speedChange_ms);
       }
       else
       {
