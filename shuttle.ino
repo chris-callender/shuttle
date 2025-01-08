@@ -11,7 +11,6 @@ ShuttleStateMachine sm;
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(115200);
   detectorBegin();
   pwmSetup();
   EEData = storeEEPROM::read();
@@ -47,11 +46,7 @@ void loop() {
   builtinLED.run(idx,pushSwitch.preemptDuration>=PRESS_LONG);
   sADC.update(idx, EEData);
   sm.update(sADC,detectorCheck(sm.activeDetector));
-  Serial.print(sm.activeDetector);
-  Serial.print("\t");
-  Serial.print(sm.speed);
-  Serial.print("\t");
-  Serial.println(sm.direction);
+
   RunMotor(sm.direction,sm.speed);
   overCurrentShutdown();
 }
