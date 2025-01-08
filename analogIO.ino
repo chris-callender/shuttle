@@ -10,7 +10,6 @@ void overCurrentShutdown()
 if (checkCurrentLimit(A3,ST_LIM,LT_LIM,LT_SAMPLES))
 {
   RunMotor(false,0);
-  Serial.println("Overcurrent shutdown");
   while(true) ; // Loop forever with motor off, will need a reset
  }
 return;
