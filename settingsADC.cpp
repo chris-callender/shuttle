@@ -32,7 +32,7 @@ void SettingsADC::update(int idx,struct EE_Entry data)
       speedChange_ms=(maxSpeed/(fADC*1000)); //Speed change in 1ms
       break;
     case 3:
-      stopDelay=(fADC*120.0)*1000.0; // time to stop for in ms
+      stopDelay=(fADC*240.0)*1000.0; // time to stop for in ms
       break;
   }
 }
